@@ -1,0 +1,355 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+    font-family: 'Fresca', sans-serif; /* Google font applied */
+    background-color: black; /* Black background */
+    color:#595959; /* White text color for contrast */
+    position: relative;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    background: linear-gradient(180deg, #000000);
+    background-size: 800% 800%;
+    animation: gradientAnimation 5s ease infinite;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+header.fade-in {
+    opacity: 1;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.5rem;
+}
+
+/* Hide the navbar on all pages by default */
+.navbar {
+    display: none;
+}
+
+/* Show the navbar only on the home page */
+.home-page .navbar {
+    display: block;
+    position: static; /* Fixed positioning to ensure it stays at the top */
+    width: 100%; /* Full width */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it appears above other content */
+    background-color: rgba(0, 0, 0, 0.8); /* Adjust if needed */
+}
+
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff !important;
+    transition: color 0.3s ease;
+    position: static;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.navbar-brand {
+    font-size: 2.5rem;
+    font-family: 'Fresca', sans-serif; /* Secondary Google font for branding */
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    padding: 10px 15px; /* Add padding for the hover effect */
+    border-radius: 5px; /* Rounded corners */
+    
+}
+
+.navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: rgba(132, 118, 118, 0.532);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::before, .navbar-nav .nav-link.active::before {
+    width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f39c12; /* Change text color on hover */
+    text-shadow: 0 0 10px rgba(243, 156, 18, 0.6); /* Glow effect */
+}
+
+.about-container, .education-container {
+    padding: 50px;
+    background-color: rgb(254, 245, 245);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color:black; /* Dark text for contrast against white background */
+}
+.about-container p {
+    font-size: 1.2rem; /* Increase or decrease this value as needed */
+    line-height: 1.6; /* Adjust line-height for better readability */
+    margin-bottom: 20px; /* Optional: Add space between paragraphs */
+    color: #333 ; /* Adjust text color if needed */
+}
+
+
+.about-container img {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjusts alignment and spacing */
+    gap: 20px; /* Adds space between cards */
+    padding: 20px;
+}
+
+/* Heading Styles */
+.project-heading {
+    text-align: center;
+    font-size: 2em; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.project-container .project-card {
+    flex: 1 1 300px; /* Allows the cards to be flexible and occupy space evenly */
+    max-width: 300px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+    background-color: #fff; /* Optional: Background color for cards */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content doesn't overflow */
+}
+
+.project-container .project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card video,
+.project-card img {
+    width: 100%; /* Ensures full width of the container */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column; /* Stacks the cards vertically on smaller screens */
+        align-items: center;
+    }
+
+    .project-container .project-card {
+        max-width: 90%; /* Adjusts width to fit within the screen on mobile */
+    }
+
+    /* Adjust heading size for smaller screens */
+    .project-heading {
+        font-size: 1.5em;
+    }
+}
+
+
+#skills {
+    padding: 20px;
+    background-color: black; /* Background color */
+    text-align: center; /* Center text */
+}
+
+.section-title {
+    margin-bottom: 20px;
+    font-size: 2em; /* Size of the heading */
+    color: #fff; /* Color of the heading */
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    gap: 20px; /* Space between items */
+}
+
+.skill-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.design-tools {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.tool-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-card {
+        max-width: 90%;
+    }
+}
+
+#contact {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+}
+
+.contact-info a {
+    color: #f39c12;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #e67e22;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #f39c12;
+}
+
+
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 15px; /* Adjusted padding for smaller screens */
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-description {
+        font-size: 1rem;
+    }
+}
+
+
+
+  
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .skill {
+        flex: 1 1 calc(50% - 40px); /* 2 items per row */
+        max-width: calc(50% - 40px);
+    }
+
+    #skills h2 {
+        font-size: 1.75em;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .skill {
+        flex: 1 1 calc(100% - 40px); /* 1 item per row */
+        max-width: calc(100% - 40px);
+    }
+
+    #skills h2 {
+        font-size: 1.5em;
+    }
+}
+
